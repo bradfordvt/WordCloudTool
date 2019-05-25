@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface>
+  <object class="tk.Menu" id="mainmenu">
+    <child>
+      <object class="tk.Menuitem.Submenu" id="SubmenuFile">
+        <property name="label" translatable="yes">File</property>
+        <child>
+          <object class="tk.Menuitem.Command" id="CommandOpen">
+            <property name="command">OnOpen</property>
+            <property name="command_id_arg">false</property>
+            <property name="label" translatable="yes">Open</property>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Menuitem.Command" id="CommandSave">
+            <property name="command">OnSave</property>
+            <property name="command_id_arg">false</property>
+            <property name="label" translatable="yes">Save</property>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Menuitem.Command" id="CommandSaveAs">
+            <property name="command">OnSaveAs</property>
+            <property name="command_id_arg">false</property>
+            <property name="label" translatable="yes">SaveAs</property>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Menuitem.Separator" id="Separator_2" />
+        </child>
+        <child>
+          <object class="tk.Menuitem.Command" id="CommandExit">
+            <property name="command">OnExit</property>
+            <property name="command_id_arg">false</property>
+            <property name="label" translatable="yes">Exit</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Menuitem.Submenu" id="SubmenuTools">
+        <property name="label" translatable="yes">Tools</property>
+        <child>
+          <object class="tk.Menuitem.Command" id="CommandStartNew">
+            <property name="command">OnStartNew</property>
+            <property name="command_id_arg">false</property>
+            <property name="label" translatable="yes">Start New</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Menuitem.Submenu" id="SubmenuHelp">
+        <property name="label" translatable="yes">Help</property>
+        <child>
+          <object class="tk.Menuitem.Command" id="CommandAbout">
+            <property name="command">OnAbout</property>
+            <property name="command_id_arg">false</property>
+            <property name="label" translatable="yes">About</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="ttk.Frame" id="mainwindow">
+    <property name="height">720</property>
+    <property name="width">680</property>
+    <layout>
+      <property name="column">0</property>
+      <property name="propagate">True</property>
+      <property name="row">0</property>
+    </layout>
+    <child>
+      <object class="ttk.Notebook" id="NotebookWordSource">
+        <property name="height">400</property>
+        <property name="width">680</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">0</property>
+        </layout>
+      </object>
+    </child>
+  </object>
+  <object class="ttk.Frame" id="FrameTextEntrySource">
+    <property name="height">400</property>
+    <property name="width">680</property>
+    <layout>
+      <property name="column">0</property>
+      <property name="propagate">True</property>
+      <property name="row">0</property>
+    </layout>
+    <child>
+      <object class="ttk.Label" id="Label_1">
+        <property name="font">{Arial} 16 {}</property>
+        <property name="text" translatable="yes">Paste text to be visualized:</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">0</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Label" id="Label_2">
+        <property name="font">{Arial} 8 {}</property>
+        <property name="text" translatable="yes">Plain text, 500 Kilobytes max</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">1</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Text" id="TextEntrySource">
+        <property name="height">10</property>
+        <property name="width">80</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">2</property>
+        </layout>
+      </object>
+    </child>
+  </object>
+</interface>

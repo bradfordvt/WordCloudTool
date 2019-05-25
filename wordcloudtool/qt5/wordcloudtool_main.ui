@@ -1,0 +1,747 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>706</width>
+    <height>670</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>WordCloud Tool</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>691</width>
+      <height>621</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_Main">
+     <item row="2" column="0">
+      <layout class="QHBoxLayout" name="horizontalLayout_WordsAndStop">
+       <item>
+        <widget class="QTabWidget" name="tabWidgetStopWords">
+         <property name="statusTip">
+          <string>Change the stop words list from the default values</string>
+         </property>
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <widget class="QWidget" name="tab_StopWordsFile">
+          <attribute name="title">
+           <string>Stop Words File</string>
+          </attribute>
+          <widget class="QWidget" name="formLayoutWidget">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>331</width>
+             <height>221</height>
+            </rect>
+           </property>
+           <layout class="QFormLayout" name="formLayout">
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_StopWordsFile">
+              <property name="text">
+               <string>Select the file containing your Stop Words:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0" colspan="2">
+             <widget class="QLineEdit" name="lineEdit_StopWordsFile"/>
+            </item>
+            <item row="2" column="0">
+             <widget class="QPushButton" name="pushButton_BrowseStopWordsFile">
+              <property name="toolTip">
+               <string>Select the stop file word list file to use</string>
+              </property>
+              <property name="text">
+               <string>Browse</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="tab_StopWordsEditor">
+          <attribute name="title">
+           <string>Stop Words Editor</string>
+          </attribute>
+          <widget class="QComboBox" name="comboBox">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>20</y>
+             <width>201</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="currentText">
+            <string>Alphabetical</string>
+           </property>
+           <item>
+            <property name="text">
+             <string>Alphabetical</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Usage</string>
+            </property>
+           </item>
+          </widget>
+          <widget class="QLabel" name="label_StopWordsEditorChoice">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>0</y>
+             <width>201</width>
+             <height>17</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Chose the sorting preference:</string>
+           </property>
+          </widget>
+          <widget class="QListView" name="listViewStopWordsEditor">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>50</y>
+             <width>201</width>
+             <height>181</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_StopWWordsEditorWord">
+           <property name="geometry">
+            <rect>
+             <x>223</x>
+             <y>90</y>
+             <width>111</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Selected word:</string>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="lineEdit_StopWordsEditorWord">
+           <property name="geometry">
+            <rect>
+             <x>220</x>
+             <y>110</y>
+             <width>113</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="toolTip">
+            <string>Type in the word to add here</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="pushButton_StopWordsEditorDelete">
+           <property name="geometry">
+            <rect>
+             <x>226</x>
+             <y>140</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="toolTip">
+            <string>Delete the selected word from the stop list</string>
+           </property>
+           <property name="text">
+            <string>Delete Word</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="pushButton_StopWordsEditorAdd">
+           <property name="geometry">
+            <rect>
+             <x>225</x>
+             <y>60</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="toolTip">
+            <string>Add the selected word to the stop list</string>
+           </property>
+           <property name="text">
+            <string>Add Word</string>
+           </property>
+          </widget>
+         </widget>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTabWidget" name="tabWidget_WordCloud">
+         <property name="statusTip">
+          <string>View the results of the document analysis</string>
+         </property>
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <widget class="QWidget" name="tab_WordCloud">
+          <attribute name="title">
+           <string>Word Cloud</string>
+          </attribute>
+          <widget class="QWidget" name="verticalLayoutWidget_3">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>331</width>
+             <height>231</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_WordCloud">
+            <item>
+             <widget class="QGraphicsView" name="graphicsViewWordCloud"/>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_WordCloud">
+              <property name="toolTip">
+               <string>Display the word cloud in a separate larger window</string>
+              </property>
+              <property name="text">
+               <string>Show WordCloud in Separate Window</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="tab_WordHistogram">
+          <attribute name="title">
+           <string>Word Histogram</string>
+          </attribute>
+          <widget class="QWidget" name="verticalLayoutWidget_4">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>331</width>
+             <height>231</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_WordHistogram">
+            <item>
+             <widget class="QGraphicsView" name="graphicsView_WordHistogram"/>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_WordHistogram">
+              <property name="toolTip">
+               <string>Display the histogram in a separate larger window</string>
+              </property>
+              <property name="text">
+               <string>Show Histogram is Separate Window</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="0" column="0">
+      <layout class="QGridLayout" name="gridLayout_TextSource">
+       <item row="0" column="0">
+        <widget class="QLabel" name="labelChooseSource">
+         <property name="font">
+          <font>
+           <family>Sans</family>
+           <pointsize>16</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Choose your text source:</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="3" column="0">
+      <layout class="QHBoxLayout" name="horizontalLayout_Visualize">
+       <item>
+        <spacer name="horizontalSpacer_VisualizeLeft">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_Visualize">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string>Analyze the document and generate the Word Cloud</string>
+         </property>
+         <property name="text">
+          <string>Visualize!</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_VisualizeRight">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item row="1" column="0">
+      <layout class="QGridLayout" name="gridLayout_SourceTabs">
+       <item row="0" column="0">
+        <widget class="QTabWidget" name="tabWidget">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string>Select the file to open</string>
+         </property>
+         <property name="statusTip">
+          <string>Choose your text source based on the file type</string>
+         </property>
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <widget class="QWidget" name="tabPasteText">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <attribute name="title">
+           <string>Paste Text</string>
+          </attribute>
+          <widget class="QWidget" name="verticalLayoutWidget_2">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>681</width>
+             <height>231</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_PasteText">
+            <item>
+             <widget class="QLabel" name="labelPasteText_Text">
+              <property name="text">
+               <string>Paste text to be visualized:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelPasteText_Req">
+              <property name="font">
+               <font>
+                <pointsize>7</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>plain text, 500 kilobyte max</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QTextEdit" name="textEditPasteText">
+              <property name="toolTip">
+               <string>Paste or type in the words to be analyzed here</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="tabWebPageURL">
+          <attribute name="title">
+           <string>Web Page URL</string>
+          </attribute>
+          <widget class="QWidget" name="horizontalLayoutWidget_2">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>681</width>
+             <height>54</height>
+            </rect>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_WebURL">
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_WebURL">
+              <item>
+               <widget class="QLabel" name="labelWebPageURL_URL">
+                <property name="text">
+                 <string>Web page URL:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="labelWebPageURL_Ex">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Sans Serif</family>
+                  <pointsize>8</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>e.g. http://myblog.com
+</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_WebPageURL">
+              <property name="toolTip">
+               <string>Paste or type in the URL link here</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="tabTextFile">
+          <attribute name="title">
+           <string>Text File</string>
+          </attribute>
+          <widget class="QWidget" name="horizontalLayoutWidget_3">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>681</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayoutTextFile">
+            <item>
+             <widget class="QLabel" name="labelTextFile">
+              <property name="text">
+               <string>Select a File:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEditTextFile"/>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButtonBrowseTextFile">
+              <property name="toolTip">
+               <string>Select the text file to open</string>
+              </property>
+              <property name="text">
+               <string>Browse</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="tabWordDoc">
+          <attribute name="title">
+           <string>Word Doc</string>
+          </attribute>
+          <widget class="QWidget" name="horizontalLayoutWidget_4">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>681</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayoutTextFile_2">
+            <item>
+             <widget class="QLabel" name="labelWordDoc">
+              <property name="text">
+               <string>Select a File:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEditWordDoc"/>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButtonBrowseWordDoc">
+              <property name="toolTip">
+               <string>Select the word document to open</string>
+              </property>
+              <property name="text">
+               <string>Browse</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="tabPDFFile">
+          <attribute name="title">
+           <string>PDF File</string>
+          </attribute>
+          <widget class="QWidget" name="layoutWidget">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>681</width>
+             <height>62</height>
+            </rect>
+           </property>
+           <layout class="QFormLayout" name="formLayout_2">
+            <item row="1" column="0">
+             <layout class="QHBoxLayout" name="horizontalLayout">
+              <item>
+               <widget class="QLabel" name="labelPDFFileType">
+                <property name="text">
+                 <string>PDF File Type:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBoxPDFFile">
+                <property name="currentText">
+                 <string>Text</string>
+                </property>
+                <property name="currentIndex">
+                 <number>0</number>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Text</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Image</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="0" column="0" colspan="2">
+             <layout class="QHBoxLayout" name="horizontalLayoutTextFile_3">
+              <item>
+               <widget class="QLabel" name="labelPDFFile">
+                <property name="text">
+                 <string>Select a File:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEditPDFFile"/>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButtonBrowsePDFFile">
+                <property name="toolTip">
+                 <string>Select the PDF file to open</string>
+                </property>
+                <property name="text">
+                 <string>Browse</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="tabImageFile">
+          <attribute name="title">
+           <string>Image File</string>
+          </attribute>
+          <widget class="QWidget" name="layoutWidget_2">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>681</width>
+             <height>62</height>
+            </rect>
+           </property>
+           <layout class="QFormLayout" name="formLayout_3">
+            <item row="1" column="0">
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <item>
+               <widget class="QLabel" name="labelImageFileType">
+                <property name="text">
+                 <string>Image File Type:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBoxImageFile">
+                <property name="currentText">
+                 <string>PNG</string>
+                </property>
+                <property name="currentIndex">
+                 <number>0</number>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>PNG</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>GIF</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>JPEG</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>TIFF</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="0" column="0" colspan="2">
+             <layout class="QHBoxLayout" name="horizontalLayoutTextFile_4">
+              <item>
+               <widget class="QLabel" name="labelImageFile">
+                <property name="text">
+                 <string>Select a File:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEditImageFile"/>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButtonBrowseImageFile">
+                <property name="toolTip">
+                 <string>Select the Image file to open</string>
+                </property>
+                <property name="text">
+                 <string>Browse</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>706</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionOpen"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionSave_As"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <addaction name="actionStart_Over"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuTools"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionStart_Over">
+   <property name="text">
+    <string>Start Over</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="actionSave_As">
+   <property name="text">
+    <string>Save As</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
